@@ -4,10 +4,12 @@ package Aula1;
  * The Ticket class represents a ticket for an event.
  * It contains information about the event name, customer name, and price of the ticket.
  */
-public class Ticket {
+class Ticket {
     private String eventName;
     private String customerName;
     private double price;
+
+    static int soldTickets = 0;
 
     /**
      * Constructs a Ticket object with the specified event name, customer name, and price.
@@ -20,6 +22,11 @@ public class Ticket {
         this.eventName = eventName;
         this.customerName = customerName;
         this.price = price;
+        this.soldTickets++;
+    }
+
+    public static int getSoldTickets() {
+        return soldTickets;
     }
 
     /**

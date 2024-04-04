@@ -10,9 +10,8 @@ public class MainAula1 {
         event.resellTicket("Alice", "David", 60);
         event.resellTicket("Bob", "Eve", 60);
         event.resellTicket("Charlie", "Frank", 60);
-        for (Ticket ticket : event.getTickets()) {
-            System.out.println(ticket.getCustomerName() + " bought a ticket for " + ticket.getEventName() + " for " + ticket.getPrice());
-        }
+        System.out.println("Sold Tickets:" + Event.getSoldTickets());
+        event.printTickets();
         System.out.println("Total revenue: " + event.calculateRevenue());
     }
 }

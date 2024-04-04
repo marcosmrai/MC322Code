@@ -30,7 +30,11 @@ public class ResellTicket extends Ticket {
      * 
      * @return the resale price of the ticket
      */
-    public double getResalePrice() {
+    public double getOriginalPrice() {
+        return super.getPrice();
+    }
+
+    public double getPrice() {
         return resalePrice;
     }
 

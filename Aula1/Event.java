@@ -41,6 +41,10 @@ public class Event {
         this.revenueRateResold = revenueRateResold;
     }
 
+    public static int getSoldTickets(){
+        return Ticket.getSoldTickets();
+    }
+
     /**
      * Sells a ticket for the event.
      * 
@@ -115,11 +119,15 @@ public class Event {
         if (originalTicket == null) {
             throw new IllegalArgumentException("Ticket not found for customer: " + originalCustomerName);
         }
-        if (originalTicket instanceof ResellTicket) {
-            throw new IllegalArgumentException("Cannot resell a resold ticket");
-        }
         ResellTicket resellTicket = new ResellTicket(originalTicket, newCustomerName, resalePrice);
         tickets.remove(originalTicket);
         tickets.add(resellTicket);
     }
+
+    public void printTickets() {
+        for (Ticket ticket : tickets) {
+            System.out.println(ticket.getCustomerName() + " bought a ticket for " + ticket.getEventName() + " for " + ticket.getPrice());
+        }
+    }
 }
+
