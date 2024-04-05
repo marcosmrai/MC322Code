@@ -3,11 +3,10 @@ package Aula4Main;
 public class ExceptionTest {
     public static void main(String[] args) {
         try {
-            int [] array = null;
+            int [] array = new int[5];
             int length = arrayLenght(array);
-            array = new int[5];
-            int value = getValueFromArray(array, 10);
-            int result = divide(10, value);
+            int value = getValueFromArrayCatch(array, 10);
+            int result = divideCatch(10, value);
             System.out.println("Result: " + result);
 
         } catch (ArithmeticException e) {
@@ -16,9 +15,11 @@ public class ExceptionTest {
             System.out.println("A null pointer error occurred: " + e.getMessage());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("An array index out of bounds error occurred: " + e.getMessage());
+            value = -1;
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
+
     }
     
     public static int divide(int dividend, int divisor) {
@@ -32,7 +33,7 @@ public class ExceptionTest {
             return dividend / divisor;
         } catch (ArithmeticException e) {
             System.out.println("An arithmetic error occurred: " + e.getMessage());
-            return 0;
+            return 9999999;
         }
     }
     public static int getValueFromArray(int[] array, int index) {
