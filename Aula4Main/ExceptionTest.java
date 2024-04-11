@@ -15,7 +15,6 @@ public class ExceptionTest {
             System.out.println("A null pointer error occurred: " + e.getMessage());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("An array index out of bounds error occurred: " + e.getMessage());
-            value = -1;
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
